@@ -163,7 +163,8 @@
  </cfoutput>
 </cfloop>
 
-<!--- database --->
+<!--- [8]- DATABASE QUERIES --->
+
 <cfquery datasource="basic">
   select *
   from sakila.actor
@@ -171,7 +172,7 @@
 
 <hr>
 <p>query loop</p> 
-<cfquery name="getActor" datasource = "basic">
+<cfquery name="getActor" datasource = "basic" maxrows = "6">
   select *
   from sakila.actor
 </cfquery>
