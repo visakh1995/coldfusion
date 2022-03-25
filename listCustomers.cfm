@@ -18,7 +18,6 @@ cellspacing="8">
         <td>#title#</td>
         <td>#description#</td>
         <td>#release_year#</td>
-    
     </tr>
 </cfoutput>
 </table>

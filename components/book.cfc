@@ -15,7 +15,6 @@
                 <cfoutput query = "getBooks">
                     <book id="#customer_id#">
                     <booktitle>#first_name#</booktitle>
-
                 </cfoutput>
             </books>
         </cfsavecontent>

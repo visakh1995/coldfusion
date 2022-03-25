@@ -1,0 +1,50 @@
+*{  
+    box-sizing: border-box;
+    padding:0;
+    margin:0;
+}
+body{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    background-color: slateblue;
+}
+.main_container{
+    display : flex;
+    justify-content: center;
+    align-items: center;
+}
+.forms{
+    margin: 150px 0px;
+}
+.forms h3{
+    text-align: center;
+    padding:20px;
+}
+.card {
+    background-color: #fff;
+    border-radius: 5px;;
+    padding:30px;
+    width:400px;
+    height:400px;
+}
+.form-control{
+    padding:25px;
+}
+.form-btn-control{
+    margin :10px 90px;
+}
+input{
+    border:none;
+    border-bottom: 1px solid gray;
+    width: 100%;
+    font-size: 14px;
+}
+input:focus{
+    outline: none;
+}
+.common-btn{
+    padding:7px 20px;
+    background-color: #047ade;
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+}
