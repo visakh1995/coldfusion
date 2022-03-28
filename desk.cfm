@@ -1,14 +1,20 @@
 
-<cfinvoke component = "components.createInfo"
-method="listInfoDetails" returnVariable="showData">
-</cfinvoke>
-<!--- <cfdump var = #showData#> --->
 <html>
     <head>
         <link rel="stylesheet" href = "css/desk.css">
         <title>Info list</title>
     </head>
+    <cfhtmltopdf
+    destination="convert.pdf" overwrite="yes"
+    source="http://www.google.com/"
+    unit="in" pageheight="8" pagewidth="4"
+    pagetype="custom">
+   </cfhtmltopdf>
+   <cfhtmltopdf  encryption="AES_128"  destination="destination"  marginBottom="marginBottom"  marginTop="marginTop"  marginLeft="marginLeft"  marginRight="marginRight"  name="name"  orientation="portrait"  overwrite="overwrite"  ownerPassword="ownerPassword"  userPassword="userPassword"  permissions="AllowPrinting"  pageType="legal"  pageWidth="pageWidth"  pageHeight="pageHeight"  saveAsName="saveAsName"  unit="in">
     <body>
+        <cfinvoke component = "components.createInfo"
+        method="listInfoDetails" returnVariable="showData">
+        </cfinvoke>
         <h3 class="table-head">INFO LIST</h3>
         <table cellpadding:"2" cellspacing="4">
             <tr>
@@ -17,8 +23,6 @@ method="listInfoDetails" returnVariable="showData">
                 <th>Last Name</th>
                 <th>Email</th>
                 <th></th>
-                <th></th>
-
             </tr>
             <cfoutput query="showData">
             <tr>
@@ -27,13 +31,13 @@ method="listInfoDetails" returnVariable="showData">
                 <td>#lastName#</td>
                 <td>#email#</td>
                 <td>
-                    <form>
-                        <form action="indexAction.cfm?From=Edit&ID=#userId#" 
-                        method="post">
-                        <input type="submit" value="Edit">
-                    </form>
+                <button class="btn">
+                <a href="update.cfm?ID=#userId#">edit</a>
+
+                <button class="btn">
+                <a href="infoAction.cfm?DELETE=#userId#">delete</a>
+                </button>           
                 </td>
-                <td><a href="">delete</a></td>
             </tr>
             </cfoutput>
         </table>

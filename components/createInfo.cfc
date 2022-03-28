@@ -1,5 +1,6 @@
 <cfcomponent>
     <!--- insert data --->
+
     <cffunction name="createInfoDetails">
         <cfquery name="addData" result = result  datasource="cruddb">
             INSERT INTO sakila.info (firstName,lastName,email)
@@ -10,14 +11,50 @@
             )
         </cfquery>
         <cflocation url="./desk.cfm" >
-
     </cffunction>
-       <!--- list data --->
+
+    <!--- list data --->
+
     <cffunction name="listInfoDetails">
         <cfquery name="showData" datasource="cruddb">
             SELECT * FROM sakila.info;
         </cfquery>
          <cfreturn showData>
+    </cffunction>
+
+    <!--- edit --->
+
+    <cffunction name="editInfoDetails">
+        <cfargument name ="editId" type="string" required="yes">
+        <cfquery name="editData" datasource="cruddb">
+            SELECT * FROM sakila.info WHERE userId = '#editId#'
+        </cfquery>
+        <cfreturn editData>
+        <cfdump var=#editData#>
+    </cffunction>
+
+    <!---update--->
+
+    <cffunction name="updateInfoDetails">
+        <cfquery name="updateData" datasource="cruddb">
+           UPDATE sakila.info SET 
+           firstName = <cfqueryparam CFSQLType="cf_sql_varchar" value="#arguments.firstName#">,
+           firstName = <cfqueryparam CFSQLType="cf_sql_varchar" value="#arguments.firstName#">,
+           lastName  = <cfqueryparam CFSQLType="cf_sql_varchar" value="#arguments.lastName#">,
+           email     = <cfqueryparam CFSQLType="cf_sql_varchar" value="#arguments.email#">
+           WHERE userId = <cfqueryparam CFSQLType="cf_sql_varchar" value="#arguments.userUpdateId#">
+        </cfquery>
+        <cflocation url="./desk.cfm" >
+    </cffunction>
+
+    <!--- delete --->
+
+    <cffunction name="deleteInfoDetails">
+        <cfargument name="deleteId" required="yes">
+        <cfquery name="deleteData" datasource="cruddb">
+            DELETE FROM sakila.info WHERE userId = "#deleteId#"
+        </cfquery>
+        <cflocation  url="./desk.cfm">
     </cffunction>
 </cfcomponent>
 
