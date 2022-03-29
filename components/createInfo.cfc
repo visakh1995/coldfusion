@@ -2,15 +2,17 @@
     <!--- insert data --->
 
     <cffunction name="createInfoDetails">
+        <cfset imageValue = #cffile.serverFile#>
         <cfquery name="addData" result = result  datasource="cruddb">
-            INSERT INTO sakila.info (firstName,lastName,email)
+            INSERT INTO sakila.info (firstName,lastName,email,images)
             VALUES(
                 <cfqueryparam value="#form.firstName#">,
                 <cfqueryparam value="#form.lastName#">,
-                <cfqueryparam value ="#form.email#">
+                <cfqueryparam value ="#form.email#">,
+                "#imageValue#"
             )
         </cfquery>
-        <cflocation url="./desk.cfm" >
+    <cflocation url="./desk.cfm" > 
     </cffunction>
 
     <!--- list data --->
@@ -41,8 +43,7 @@
            firstName = <cfqueryparam CFSQLType="cf_sql_varchar" value="#arguments.firstName#">,
            firstName = <cfqueryparam CFSQLType="cf_sql_varchar" value="#arguments.firstName#">,
            lastName  = <cfqueryparam CFSQLType="cf_sql_varchar" value="#arguments.lastName#">,
-           email     = <cfqueryparam CFSQLType="cf_sql_varchar" value="#arguments.email#">
-           WHERE userId = <cfqueryparam CFSQLType="cf_sql_varchar" value="#arguments.userUpdateId#">
+           email     = <cfqueryparam CFSQLType="cf_sql_varchar" value="#arguments.email#">,
         </cfquery>
         <cflocation url="./desk.cfm" >
     </cffunction>
