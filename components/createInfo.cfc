@@ -57,6 +57,12 @@
         </cfquery>
         <cflocation  url="./desk.cfm">
     </cffunction>
+
+    <!--- signin --->
+    
+    <cffunction name="createInfoSignin">
+        <cfdump var = #form.firstName#>
+    </cffunction>
 </cfcomponent>
 
 

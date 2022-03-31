@@ -1,15 +1,22 @@
 <cfif isDefined("submit")>
    <cfif len(trim(form.images))>
-      <cffile action="upload"
+      <!--- <cffile action="upload"
       fileField="images"
       destination="C:\coldFusion2021\cfusion\wwwroot\test\uploads\">
-      <p>Thankyou, your file has been uploaded.</p>
+      <p>Thankyou, your file has been uploaded.</p> --->
       <cfinvoke component="components.createInfo" 
       method="createInfoDetails" returnVariable="insertedData" 
       argumentCollection="#Form#"> 
       </cfinvoke>
 
    </cfif>
+</cfif>
+
+<cfif isDefined("signin")>
+   <cfinvoke component="components.createInfo"
+   method="createInfoSignin" argumentCollection="#Form#">
+   </cfinvoke>
+   
 </cfif>
 
 <cfif isDefined("update")>

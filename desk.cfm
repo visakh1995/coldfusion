@@ -5,14 +5,14 @@
         <title>Info list</title>
     </head>
     <cfhtmltopdf
-    destination="convert.pdf" overwrite="yes"
-    source="http://www.google.com/"
-    unit="in" pageheight="8" pagewidth="4"
-    pagetype="custom">
+        destination="convert.pdf" overwrite="yes"
+        source="http://www.google.com/"
+        unit="in" pageheight="8" pagewidth="4"
+        pagetype="custom">
    </cfhtmltopdf>
     <body>
         <cfinvoke component = "components.createInfo"
-        method="listInfoDetails" returnVariable="showData">
+           method="listInfoDetails" returnVariable="showData">
         </cfinvoke>
         <h3 class="table-head">INFO LIST</h3>
         <button class="btn"><a href="./csvprocess.cfm">csv</a></button>
@@ -35,5 +35,9 @@
             </tr>
             </cfoutput>
         </table>
+            <cfoutput> 
+                E-Turtleneck is proud to say that we have sold #Session.firstName# turtlenecks to date. 
+            </cfoutput> 
+
     </body>
 </html>

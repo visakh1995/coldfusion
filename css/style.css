@@ -27,7 +27,7 @@ body{
     height:500px;
 }
 .form-control{
-    padding:25px;
+    padding:18px;
 }
 .form-btn-control{
     margin :10px 90px;
@@ -36,7 +36,7 @@ input{
     border:none;
     border-bottom: 1px solid gray;
     width: 100%;
-    font-size: 14px;
+    font-size: 12px;
 }
 input:focus{
     outline: none;
