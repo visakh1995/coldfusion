@@ -25,6 +25,7 @@
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Email</th>
+                <th></th>
             </tr>
             <cfoutput query="showData">
             <tr>
@@ -32,12 +33,21 @@
                 <td>#firstName#</td>
                 <td>#lastName#</td>
                 <td>#email#</td>
+                <td>
+                <button class="btn">
+                    <a href="update.cfm?ID=#userId#">edit</a><button class="btn">
+                    <a href="infoAction.cfm?DELETE=#userId#">delete</a>
+                    </button>           
+                </td>
             </tr>
             </cfoutput>
         </table>
-            <cfoutput> 
-                E-Turtleneck is proud to say that we have sold #Session.firstName# turtlenecks to date. 
-            </cfoutput> 
-
+<!---             <cfoutput>  --->
+<!---                 E-Turtleneck is proud to say that we have sold #Session.firstName# turtlenecks to date.  --->
+<!---             </cfoutput>  --->
+       <cfset lister = application.createInfo.listInfoDetails()/>
+       <cfoutput query = "lister">
+          <p>#firstName#</p>
+       </cfoutput>
     </body>
 </html>

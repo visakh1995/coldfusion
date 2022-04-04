@@ -1,5 +1,6 @@
 <cfif isDefined("submit")>
-   <cfif len(trim(form.images))>
+
+<!---    <cfif len(trim(form.images))> --->
       <!--- <cffile action="upload"
       fileField="images"
       destination="C:\coldFusion2021\cfusion\wwwroot\test\uploads\">
@@ -9,7 +10,7 @@
       argumentCollection="#Form#"> 
       </cfinvoke>
 
-   </cfif>
+<!---    </cfif> --->
 </cfif>
 
 <cfif isDefined("signin")>
@@ -25,9 +26,9 @@
    </cfinvoke>
 </cfif>
 
-<cfif DELETE>
+<cfif isDefined("url.DELETE")>
    <cfinvoke component = "components.createinfo"
    method="deleteInfoDetails">
-   <cfinvokeargument  name="deleteId"  value="#DELETE#">
+   <cfinvokeargument  name="deleteId"  value="#url.DELETE#">
    </cfinvoke>
 </cfif>
